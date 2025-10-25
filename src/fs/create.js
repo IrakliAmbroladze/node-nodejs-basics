@@ -1,8 +1,10 @@
 import { writeFile, access } from "node:fs/promises";
+import { URL } from "node:url";
+
 const create = async () => {
   // Write your code here
   const content = "I am fresh and young";
-  const file = "./files/fresh.txt";
+  const file = new URL("./files/fresh.txt", import.meta.url);
   const errorMessage = "FS operation failed";
   try {
     await access(file);

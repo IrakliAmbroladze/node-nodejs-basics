@@ -1,8 +1,10 @@
 import { rename as renamePromise, access } from "node:fs/promises";
+import { URL } from "node:url";
+
 const rename = async () => {
   // Write your code here
-  const oldPath = "./files/wrongFilename.txt";
-  const newPath = "./files/properFilename.md";
+  const oldPath = new URL("./files/wrongFilename.txt", import.meta.url);
+  const newPath = new URL("./files/properFilename.md", import.meta.url);
   const errorMessage = "FS operation failed";
   try {
     try {

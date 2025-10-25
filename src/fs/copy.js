@@ -1,8 +1,9 @@
 import { cp } from "node:fs/promises";
+import { URL } from "node:url";
 const copy = async () => {
   // Write your code here
-  const src = "./files/";
-  const dest = "./files_copy";
+  const src = new URL("./files/", import.meta.url);
+  const dest = new URL("./files_copy", import.meta.url);
   const errorMessage = "FS operation failed";
   try {
     try {

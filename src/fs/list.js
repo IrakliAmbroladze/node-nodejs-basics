@@ -1,7 +1,9 @@
 import { readdir, access } from "node:fs/promises";
+import { URL } from "node:url";
+
 const list = async () => {
   // Write your code here
-  const directory = "./files/";
+  const directory = new URL("./files/", import.meta.url);
   const errorMessage = "FS operation failed";
   try {
     try {
