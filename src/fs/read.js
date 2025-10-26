@@ -1,9 +1,10 @@
 import { readFile, access } from "node:fs/promises";
-import { URL } from "node:url";
+import { URL, fileURLToPath } from "node:url";
 
 const read = async () => {
   // Write your code here
-  const file = new URL("./files/fileToRead.txt", import.meta.url);
+  const fileURL = new URL("./files/fileToRead.txt", import.meta.url);
+  const file = fileURLToPath(fileURL);
   const errorMessage = "FS operation failed";
   try {
     try {
